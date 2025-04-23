@@ -31,6 +31,17 @@ class User(AbstractUser):
         verbose_name = "Користувач"
         verbose_name_plural = "Користувачі"
 
+class UsersGroupV2(models.Model):
+    name = models.CharField(verbose_name="Назва группи", max_length=100,unique=True)
+    users = models.ManyToManyField(User, related_name='users_groups_v2')
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        db_table = 'users_group_v2'
+        verbose_name = 'Група_v2'
+        verbose_name_plural = 'Групи_v2'
 
 class UsersGroup(models.Model):
     name = models.CharField(verbose_name="Назва группи", max_length=100,unique=True)

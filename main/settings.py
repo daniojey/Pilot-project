@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
         "default": dj_database_url.config(
-            default="postgres://test:root@localhost:5432/Tests", conn_max_age=600
+            default="postgres://superuser:root@localhost:5432/Tests_v2", conn_max_age=600
         )
     }
 

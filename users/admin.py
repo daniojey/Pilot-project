@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from users.models import User, UsersGroup, UsersGroupMembership, LoginAttempt
+from users.models import User, UsersGroup, UsersGroupMembership, LoginAttempt, UsersGroupV2
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from unfold.admin import ModelAdmin
 
@@ -13,6 +13,10 @@ from unfold.admin import ModelAdmin
 class UserAdmin(ModelAdmin):
     list_display = ["first_name","last_name", "username", "email"]
     search_fields = ["first_name","last_name", "username", "email"]
+
+@admin.register(UsersGroupV2)
+class UserGroupv2Admin(ModelAdmin):
+    search_fields = ['name']
 
 @admin.register(UsersGroup)
 class UserGroupAdmin(ModelAdmin):
