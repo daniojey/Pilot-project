@@ -6,6 +6,7 @@ from io import BytesIO
 
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', blank=True, null=True)
+    group_owner = models.BooleanField(default=False, verbose_name="Вчитель группы")
 
     def __str__(self):
         return  self.username
